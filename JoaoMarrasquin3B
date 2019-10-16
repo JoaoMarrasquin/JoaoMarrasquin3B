@@ -123,7 +123,7 @@ namespace EJERCICIO1
                                 salariototal = salario + horasextra;
                                 Console.WriteLine("El trabajador gana un salario de: " + salariototal + " dólares");
                             }
-                            Console.WriteLine("¿Desea calcular otro salario? ");
+                            Console.WriteLine("¿Quiere calcular un nuevo salario? ");
                             Console.WriteLine("1.-Si");
                             Console.WriteLine("2.-No");
                             pregunta = Convert.ToInt32(Console.ReadLine());
