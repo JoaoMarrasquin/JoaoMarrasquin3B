@@ -1,0 +1,306 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EJERCICIO1
+{
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            int menu=0;
+            do
+            {
+                Console.WriteLine("Menú de ejercicios:\n" +
+                    "\n1.- Ejercicio 1" +
+                    "\n2.- Ejercicio 2" +
+                    "\n3.- Ejercicio 3" +
+                    "\n4.- Ejercicio 4" +
+                    "\n5.- Ejercicio 5" +
+                    "\n6.- Ejercicio 6" +
+                    "\n7.- Ejercicio 7" +
+                    "\n8.- Ejercicio 8" +
+                    "\n9.- Ejercicio 9" +
+                    "\n10.- Ejercicio 10" +
+                    "\n11. SALIR");
+
+
+                menu = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+                switch (menu)
+                {
+                    case 1:
+                        Console.WriteLine("/Realizar un programa que lea una serie de números por teclado e indique cuál es el mayor./");
+
+                        int[] n;
+                        int cant;
+                        int mayor;
+
+                        Console.WriteLine("- Ingrese el número de elementos:");
+                        cant = Convert.ToInt32(Console.ReadLine());
+                        n = new int[cant];
+                        for (int i = 0; i < cant; i++)
+                        {
+                            Console.WriteLine("Ingrese el número:");
+                            n[i] = int.Parse(Console.ReadLine());
+
+                        }
+                        mayor = n[0];
+                        for (int i = 0; i < cant; i++)
+                        {
+                            if (n[i] > mayor)
+                            {
+                                mayor = n[i];
+                            }
+                        }
+                        Console.WriteLine("El número mayor es: " + mayor);
+                        break;
+
+                    case 2:
+                        Console.WriteLine("/Crear un programa que lea un número entero y a partir de él cree un cuadrado de asteriscos con ese tamaño." +
+                            "Los asteriscos sólo se verán en el borde del cuadrado, no en el interior./");
+                        int entero;
+                        Console.Write("-Ingrese el número entero");
+                        entero = Convert.ToInt32(Console.ReadLine());
+                        for (int c = 0; c < entero; c++)
+                        {
+                            Console.Write("*");
+                        }
+                        Console.WriteLine(" ");
+                        for (int c = 0; c < entero - 2; c++)
+                        {
+                            Console.Write("*");
+                            for (int d = 0; d < entero - 2; d++)
+                            {
+                                Console.Write(" ");
+                            }
+                            Console.WriteLine("*");
+                        }
+                        for (int c = 0; c < entero; c++)
+                        {
+                            Console.Write("*");
+                        }
+                        break;
+
+                    case 3:
+                        Console.WriteLine("/Crear un programa que lea cantidades y precios y al final indique el total de la factura./" );
+                        double precio, pagar = 0, total = 0;
+                        int cantidad=1;
+                        while (cantidad != 0)
+                        {
+                                Console.WriteLine("Ingrese la cantidad");
+                                cantidad = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Ingrese el precio");
+                                precio = Convert.ToDouble(Console.ReadLine());
+                                total = cantidad * precio;
+                                pagar = pagar + total;
+                         }
+                        Console.WriteLine("El total a pagar es "+pagar);
+                        
+                        break;
+                    case 4:
+                        Console.WriteLine("/Crear un programa para calcular el salario semanal de unos empleados a los que se les paga 15 dólares" +
+                            " por hora si éstas no superan las 35 horas.Cada hora por encima de 35 se considerará extra y se paga a 22 dólares.");
+                        int salario, horas, pregunta;
+                        do
+                        {
+                            Console.WriteLine("-Introduce las horas trabajadas: ");
+                            horas = Convert.ToInt32(Console.ReadLine());
+                            if (horas <= 35)
+                            {
+                                salario = horas * 15;
+                                Console.WriteLine("El trabajador gana un salario de: " + salario + " dólares");
+                            }
+                            else
+                            {
+                                int salariototal, horasextra;
+                                horasextra = (horas - 35) * 22;
+                                salario = 35 * 15;
+                                salariototal = salario + horasextra;
+                                Console.WriteLine("El trabajador gana un salario de: " + salariototal + " dólares");
+                            }
+                            Console.WriteLine("¿Desea calcular otro salario? ");
+                            Console.WriteLine("1.-Si");
+                            Console.WriteLine("2.-No");
+                            pregunta = Convert.ToInt32(Console.ReadLine());
+                        } while (pregunta != 2);
+                        break;
+
+                    case 5:
+                        Console.WriteLine("/Crear el programa asteriscos4 en el que se introduce un número entero y se crea una pirámide de" +
+                            " asteriscos./");
+                        int filas;
+                        Console.Write("-Ingrese el número de filas ");
+                        filas = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine();
+                        for (int h = 0; h < filas + 1; h++)
+                        {
+                            for (int d = 0; d < filas - h; d++)
+                            {
+                                Console.Write(" ");
+                            }
+                            for (int a = 0; a < (h * 2) - 1; a++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.WriteLine();
+                        }
+                        break;
+
+                    case 6:
+                        Console.WriteLine("/Modificar el ejercicio anterior para que aparezca un rombo./");
+                        int fila;
+                        Console.Write("-Ingrese el número de filas ");
+                        fila = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine();
+                        for (int c = 0; c < fila + 1; c++)
+                        {
+                            for (int d = 0; d < fila - c; d++)
+                            {
+                                Console.Write(" ");
+                            }
+                            for (int a = 0; a < (c * 2) - 1; a++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.WriteLine();
+                        }
+                        for (int c = fila; c >= 1; c = c - 1)
+                        {
+                            for (int d = 0; d < fila - c; d++)
+                            {
+                                Console.Write(" ");
+                            }
+                            for (int a = 0; a < (c * 2) - 1; a++)
+                            {
+                                Console.Write("*");
+                            }
+                            Console.WriteLine();
+                        }
+                        break;
+                    case 7:
+                        Console.WriteLine("/Crear un programa que escriba dos columnas de números, " +
+                            "en la primera se colocan los números del 1 a 100, en la segunda los números del 100 al 1/");
+                       
+                        int t = 101;
+                        for (int c = 0; c < 101; c++)
+                        {
+                            t = t - 1;
+                            Console.WriteLine( + c + "    " + t);
+
+                        }
+                        break;
+
+                    case 8:
+                        Console.WriteLine("/Crear un programa en C# que lea un número entero y positivo y que escriba tres columnas. La primera" +
+                            "cuenta desde uno hasta el número escrito contando de uno en uno; la segunda columna cuenta de dos " +
+                            "en dos y la tercera de tres./");
+                        int positivo, dos = 0, tres = 0, uno=0;
+                        Console.Write("Ingrese un número positivo");
+                        positivo = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("    " + "    " + "    ");
+                        while (uno<positivo)
+                        {
+                            uno++;
+                            dos= dos + 2;
+                            tres= tres + 3;
+                            if (dos > positivo)
+                            {
+                                if (tres > positivo)
+                                {
+                                    Console.WriteLine("  " + uno + "       " + "     " + "     ");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("  " + uno + "       " + tres + "     ");
+                                }
+                            }
+                            else if(dos <= positivo)
+                            {
+                                if (tres>positivo)
+                                {
+                                    Console.WriteLine("  " + uno + "       " + dos + "      ");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("  " + uno + "       " + dos + "      " + tres + " ");
+                                }
+                            }
+                        }
+                        break;
+
+                    case 9:
+                        Console.WriteLine("/Crear el programa tablaMultiplicar que escriba la tabla de multiplicar del número 1 al número 15./");
+                        Console.WriteLine("-Ingrese el número de la tabla de multiplicar a calcular");
+                        int multi = Convert.ToInt32(Console.ReadLine());
+
+                        for (int i = 0; i <= 15; i++)
+                        {
+                            Console.WriteLine("{0} x {1} = {2}", multi, i, (multi * i));
+                        }
+                        break;
+
+                    case 10:
+                        int funciones;
+                        do
+                        {
+                            Console.WriteLine("Menú de funciones:\n" +
+                    "\n1.- Salir" +
+                    "\n2.- Sumatorio" +
+                    "\n3.- Factorial");
+                            funciones = Convert.ToInt32(Console.ReadLine());
+                            switch (funciones)
+                            {
+                                case 1:
+                                    bool salir = true;
+                                    break;
+
+                                case 2:
+                                    int num, suma = 0;
+                                    Console.WriteLine("Ingrese un número");
+                                    num = Convert.ToInt32(Console.ReadLine());
+                                    for (int i = 0; i <= num; i++)
+                                    {
+                                        suma = suma + i;
+                                    }
+                                    Console.WriteLine("La sumatorio es: " + suma);
+                                    break;
+
+                                case 3:
+                                    int num1;
+                                    double factorial = 1;
+                                    Console.WriteLine("Ingrese un número");
+                                    num1 = Convert.ToInt32(Console.ReadLine());
+                                    do
+                                    {
+                                        factorial = factorial * num1;
+                                        num1--;
+                                    } while (num1 != 0);
+                                    Console.WriteLine("El factorial es: " + factorial);
+                                    break;
+                            }
+
+                        } while (funciones != 1);
+                        Console.WriteLine("Ha terminado el programa");
+                        break;
+
+                    case 11:
+                        Console.WriteLine("HA FINALIZADO TODOS LOS EJERCICIOS DEL MENÚ");
+                        break;
+
+                    default:
+                        Console.WriteLine(">INGRESE UNA OPCIÓN VÁLIDA DEL MENÚ");
+                        break;
+                   
+                }
+            } while (menu != 11);
+
+                    Console.ReadKey();
+            }
+        }
+
+    }
